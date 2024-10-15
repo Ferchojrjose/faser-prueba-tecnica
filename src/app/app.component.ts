@@ -32,4 +32,9 @@ export class AppComponent {
 			this.nuevaTarea = new Tarea(0, '', 0); // Reiniciar el formulario
 		}
 	}
+
+
+	eliminarTareas() {
+        this.tareas = this.tareas.filter(tarea => !tarea.seleccionada);
+    }
 }
