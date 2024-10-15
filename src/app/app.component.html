@@ -10,7 +10,7 @@
 	</form>
 	<!-- fin formulario para agregar tareas -->
 
-	
+
 	<!-- tabla de tareas -->
 	<table class="table">
 		<thead>
@@ -24,6 +24,8 @@
 			<tr *ngFor="let tarea of tareas" [class.destacada]="tarea.destacada">
 				<td>{{ tarea.titulo }}</td>
 				<td>{{ tarea.minutos }}</td>
+
+				<!-- checkbox para seleccionar tareas -->
 				<td>
 					<input type="checkbox" [(ngModel)]="tarea.seleccionada">
 				</td>
