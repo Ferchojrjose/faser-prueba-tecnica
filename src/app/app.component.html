@@ -1,7 +1,27 @@
 <div class="container">
 	<h1>Prueba técnica - Estudio Faser</h1>
 	<h2>Listado de tareas</h2>
-	<ol>
-		<li *ngFor="let tarea of tareas">{{tarea.titulo}} ({{tarea.minutos}} minutos)</li>
-	</ol>
+
+	<!-- tabla de tareas -->
+	<table class="table">
+        <thead>
+            <tr>
+                <th (click)="ordenar('titulo')">Título</th>
+                <th (click)="ordenar('minutos')">Duración (minutos)</th>
+                <th>Seleccionar</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let tarea of tareas" [class.destacada]="tarea.destacada">
+                <td>{{ tarea.titulo }}</td>
+                <td>{{ tarea.minutos }}</td>
+                <td>
+                    <input type="checkbox" [(ngModel)]="tarea.seleccionada">
+                </td>
+            </tr>
+        </tbody>
+    </table>
+	<!-- fin tabla de tareas -->
+
+
 </div>
