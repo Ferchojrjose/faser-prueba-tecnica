@@ -37,23 +37,29 @@ export class AppComponent {
 
 	// Método para eliminar una tarea
 	eliminarTareas() {
-        this.tareas = this.tareas.filter(tarea => !tarea.seleccionada);
-    }
+		this.tareas = this.tareas.filter(tarea => !tarea.seleccionada);
+	}
 
 
 	// Método para cambiar el estado de una tarea
 	ordenar(propiedad: string) {
-        this.ordenAscendente = !this.ordenAscendente; // Cambiar el orden
-        this.tareas.sort((a, b) => this.ordenAscendente ? (a[propiedad] > b[propiedad] ? 1 : -1) : (a[propiedad] < b[propiedad] ? 1 : -1));
-    }
+		this.ordenAscendente = !this.ordenAscendente; // Cambiar el orden
+		this.tareas.sort((a, b) => this.ordenAscendente ? (a[propiedad] > b[propiedad] ? 1 : -1) : (a[propiedad] < b[propiedad] ? 1 : -1));
+	}
 
 
 	// Método para cambiar el estado de una tarea
 	marcarDestacadas() {
-        this.tareas.forEach(tarea => {
-            if (tarea.seleccionada) {
-                tarea.destacada = !tarea.destacada;
-            }
-        });
-    }
+		this.tareas.forEach(tarea => {
+			if (tarea.seleccionada) {
+				tarea.destacada = !tarea.destacada;
+			}
+		});
+	}
+
+
+	// Método para cambiar el estado de una tarea
+	ordenarAleatorio() {
+		this.tareas = this.tareas.sort(() => Math.random() - 0.5);
+	}
 }

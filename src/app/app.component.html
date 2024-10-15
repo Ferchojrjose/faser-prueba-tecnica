@@ -18,6 +18,7 @@
 				<th (click)="ordenar('titulo')">Título</th>
 				<th (click)="ordenar('minutos')">Duración (minutos)</th>
 				<th>Seleccionar</th>
+				<th>Marcar como destacadas</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -29,6 +30,10 @@
 				<td>
 					<input type="checkbox" [(ngModel)]="tarea.seleccionada">
 				</td>
+
+				<td>
+                    <input type="checkbox" [(ngModel)]="tarea.destacada"> <!-- Checkbox para marcar tarea como destacada -->
+                </td>
 			</tr>
 		</tbody>
 	</table>
@@ -38,7 +43,9 @@
 	<!-- botones para destacar y eliminar tareas -->
 	<button (click)="eliminarTareas()" class="btn btn-danger">Eliminar Tareas Seleccionadas</button>
 	<button (click)="ordenarAleatorio()" class="btn btn-secondary">Ordenar Aleatorio</button>
-	<button (click)="marcarDestacadas()" class="btn btn-warning">Marcar Destacadas</button>
+	
+	<!-- la tarea debe de estar seleccionada antes -->
+	<button (click)="marcarDestacadas()" title="La tarea debe de estar seleccionada" class="btn btn-warning">Marcar Destacadas</button>
 
 
 </div>
